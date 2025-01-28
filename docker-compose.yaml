@@ -36,10 +36,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-api-ase1-0-5155.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-0-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: "zq2-infratest-api-ase1-0-5155"
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-0-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -55,10 +55,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-api-ase1-1-5155.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-1-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: "zq2-infratest-api-ase1-1-5155"
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-1-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -74,10 +74,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-api-ase1-2-5155.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-2-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: "zq2-infratest-api-ase1-2-5155"
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-2-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -93,10 +93,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-validator-ase1-0-f1b8.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-3-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-validator-ase1-0-f1b8
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-3-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -112,10 +112,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-validator-ase1-1-f1b8.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-4-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-validator-ase1-1-f1b8
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-4-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -131,10 +131,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-validator-ase1-2-f1b8.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-5-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-validator-ase1-2-f1b8
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-5-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -150,10 +150,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-bootstrap-ase1-0-334d.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-6-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-bootstrap-ase1-0-334d
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-6-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -169,10 +169,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-checkpoint-ase1-0-dc22.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-7-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-checkpoint-ase1-0-dc22
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-7-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -188,10 +188,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-persistence-ase1-0-580e.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-8-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-persistence-ase1-0-580e
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-8-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -207,10 +207,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-query-ase1-0-7007.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-api-ase1-9-2cdc.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-query-ase1-0-7007
+      INSTANCE_NAME: "zq2-protomainnet-api-ase1-9-2cdc"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -226,10 +226,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-infratest-graph-usw1-0-5f38.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-bootstrap-ase1-0-ef17.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-infratest-graph-usw1-0-5f38
+      INSTANCE_NAME: zq2-protomainnet-bootstrap-ase1-0-ef17
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -239,6 +239,146 @@ services:
     networks:
       testnet:
         ipv4_address: 198.51.100.60
+
+  client11:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-validator-ase1-0-b9fd.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-validator-ase1-0-b9fd
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client11
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.61
+
+
+  client12:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-validator-ase1-1-b9fd.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-validator-ase1-1-b9fd
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client12
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.62
+
+
+  client13:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-validator-ase1-2-b9fd.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-validator-ase1-2-b9fd
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client13
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.63
+
+
+  client14:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-checkpoint-ase1-0-d1da.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-checkpoint-ase1-0-d1da
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client14
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.64
+
+
+  client15:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-persistence-ase1-0-bc1c.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-persistence-ase1-0-bc1c
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client15
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.65
+
+
+  client16:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-query-ase1-0-e051.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-query-ase1-0-e051
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client16
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.66
+
+
+  client17:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-protomainnet-graph-usw1-0-d01.zq2.network #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-protomainnet-graph-usw1-0-d01
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client17
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.67
+
 
 networks:
   testnet:
