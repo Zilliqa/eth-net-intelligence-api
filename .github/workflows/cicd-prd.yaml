@@ -41,7 +41,7 @@ jobs:
         with:
           file: ${{ matrix.file }}
           context: ${{ matrix.context }}
-          push: ${{ github.ref_name == github.event.repository.default_branch }}
+          push: true
           tag: ${{ env.REPOSITORY }}/${{ matrix.image_name }}:${{ github.ref_name }}
           tag-length: 8
           tag-latest: ${{ matrix.tag_latest }}
