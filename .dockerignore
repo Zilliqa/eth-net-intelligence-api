@@ -9,6 +9,9 @@ config.js
 .node-xmlhttprequest-*
 .git
 .gitignore
+<<<<<<< HEAD
 .github
+=======
+>>>>>>> 2cd735e (first commit)
 .dockerignore
 Dockerfile
