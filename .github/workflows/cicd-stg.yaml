@@ -1,0 +1,58 @@
+name: "CICD staging"
+
+on:
+  # Test run before merging
+  pull_request:
+    branches:
+      - main
+  # On merged
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: write
+    runs-on: ubuntu-24.04
+    if: github.actor != 'dependabot[bot]'
+    name: "Build image"
+    strategy:
+      fail-fast: false
+      matrix:
+        application: [eth-net-intelligence-api]
+        include:
+          - application: eth-net-intelligence-api
+            image_name: eth-net-intelligence-api
+            file: Dockerfile.zilliqa
+            context: "."
+            tag_length: 8
+            tag_latest: false
+    env:
+      REGISTRY: asia-docker.pkg.dev
+      REPOSITORY: asia-docker.pkg.dev/prj-d-devops-services-4dgwlsse/zilliqa-public
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
+        with:
+          submodules: recursive
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Docker build and push
+        uses: Zilliqa/gh-actions-workflows/actions/ci-dockerized-app-build-push@v2
+        with:
+          file: ${{ matrix.file }}
+          context: ${{ matrix.context }}
+          push: ${{ github.ref_name == github.event.repository.default_branch }}
+          tag: ${{ env.REPOSITORY }}/${{ matrix.image_name }}
+          tag-length: 8
+          tag-latest: ${{ matrix.tag_latest }}
+          registry: ${{ env.REGISTRY }}
+          workload-identity-provider: "${{ secrets.GCP_PRD_GITHUB_WIF }}"
+          service-account: "${{ secrets.GCP_STG_GITHUB_SA_DOCKER_REGISTRY }}"
+          cache-key: ${{ env.REPOSITORY }}/${{ matrix.image_name }}-cache
+          secrets: |
+            "TOKEN=${{ secrets.GH_PAT }}"
