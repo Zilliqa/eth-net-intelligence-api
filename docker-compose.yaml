@@ -365,10 +365,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-protomainnet-graph-usw1-0-d01.zq2.network #"198.51.100.103"
+      RPC_HOST: zq2-protomainnet-graph-usw1-0-d015.zq2.network #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: zq2-protomainnet-graph-usw1-0-d01
+      INSTANCE_NAME: zq2-protomainnet-graph-usw1-0-d015
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
