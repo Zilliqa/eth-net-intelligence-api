@@ -25,11 +25,7 @@ jobs:
         include:
           - application: eth-net-intelligence-api
             image_name: eth-net-intelligence-api
-<<<<<<< HEAD
             file: Dockerfile.zilliqa
-=======
-            file: Dockerfile
->>>>>>> 8c4517a (feat: DEVOPS-1844 add image pipeline)
             context: "."
             tag_length: 8
             tag_latest: false
