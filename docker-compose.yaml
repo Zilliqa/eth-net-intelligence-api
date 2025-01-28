@@ -1,0 +1,249 @@
+# docker-compsoe file for testing networking with static IPs
+services:
+  # node0:
+  #   environment:
+  #     RUST_BACKTRACE: 1
+  #     RUST_LOG: zilliqa=info
+  #   container_name: zilliqanode0
+  #   image: asia-docker.pkg.dev/prj-p-devops-services-tvwmrf63/zilliqa-public/zq2:v0.5.3
+  #   volumes:
+  #     - "../zq2/zq2-infratest.toml:/config.toml"
+  #   command:
+  #     - 03ec029a940a2dd787f1c20419f82a37e6c0f0c38f05d11b21d12945d0c5bc3e
+  #   ports:
+  #     - "4201:4201"
+  #     - "4202:4202"
+  #     - "3333:3333/udp"
+  #   networks:
+  #     testnet:
+  #       ipv4_address: 198.51.100.103
+
+  dashboard:
+    environment:
+      WS_SECRET: mysecret
+    container_name: dashboard
+    image: dashboard:latest
+    ports:
+      - "3000:3000"
+    # Fast shutdown - Don't gracefully close open connections.
+    stop_signal: SIGKILL
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.10
+
+  client0:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-api-ase1-0-5155.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: "zq2-infratest-api-ase1-0-5155"
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client0
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.50
+
+  client1:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-api-ase1-1-5155.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: "zq2-infratest-api-ase1-1-5155"
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client1
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.51
+
+  client2:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-api-ase1-2-5155.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: "zq2-infratest-api-ase1-2-5155"
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client2
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.52
+
+  client3:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-validator-ase1-0-f1b8.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-validator-ase1-0-f1b8
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client3
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.53
+
+  client4:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-validator-ase1-1-f1b8.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-validator-ase1-1-f1b8
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client4
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.54
+
+  client5:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-validator-ase1-2-f1b8.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-validator-ase1-2-f1b8
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client5
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.55
+
+  client6:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-bootstrap-ase1-0-334d.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-bootstrap-ase1-0-334d
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client6
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.56
+
+  client7:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-checkpoint-ase1-0-dc22.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-checkpoint-ase1-0-dc22
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client7
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.57
+
+  client8:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-persistence-ase1-0-580e.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-persistence-ase1-0-580e
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client8
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.58
+
+  client9:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-query-ase1-0-7007.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-query-ase1-0-7007
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client9
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.59
+
+  client10:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-infratest-graph-usw1-0-5f38.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: zq2-infratest-graph-usw1-0-5f38
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client10
+    image: client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.60
+
+networks:
+  testnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 198.51.100.0/24
+          gateway: 198.51.100.1

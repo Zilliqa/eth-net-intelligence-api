@@ -1,0 +1,13 @@
+.DS_Store
+*/**/.DS_Store
+node_modules
+npm-debug.log
+config.js
+*~
+*.swp
+*.pem
+.node-xmlhttprequest-*
+.git
+.gitignore
+.dockerignore
+Dockerfile
