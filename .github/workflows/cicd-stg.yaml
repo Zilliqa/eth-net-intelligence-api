@@ -25,7 +25,7 @@ jobs:
         include:
           - application: eth-net-intelligence-api
             image_name: eth-net-intelligence-api
-            file: Dockerfile
+            file: Dockerfile.zilliqa
             context: "."
             tag_length: 8
             tag_latest: false
