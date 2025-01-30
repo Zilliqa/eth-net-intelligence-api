@@ -22,7 +22,7 @@ services:
     environment:
       WS_SECRET: mysecret
     container_name: dashboard
-    image: asia-docker.pkg.dev/prj-d-devops-services-4dgwlsse/zilliqa-public/ethstats-server:742d3c4b
+    image: asia-docker.pkg.dev/prj-p-devops-services-tvwmrf63/zilliqa-public/zilstats-server:v0.0.4
     platform: linux/amd64
     ports:
       - "3000:3000"
