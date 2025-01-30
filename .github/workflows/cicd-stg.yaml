@@ -21,10 +21,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        application: [eth-net-intelligence-api]
+        application: [zilstats-agent]
         include:
-          - application: eth-net-intelligence-api
-            image_name: eth-net-intelligence-api
+          - application: zilstats-agent
+            image_name: zilstats-agent
             file: Dockerfile.zilliqa
             context: "."
             tag_length: 8
