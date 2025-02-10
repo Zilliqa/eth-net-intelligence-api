@@ -1,67 +1,83 @@
-Ethereum Network Intelligence API
-============
-[![Build Status][travis-image]][travis-url] [![dependency status][dep-image]][dep-url]
+# Zilliqa Stats Agent (Ethereum Network Intelligence API)
 
-This is the backend service which runs along with ethereum and tracks the network status, fetches information through JSON-RPC and connects through WebSockets to [eth-netstats](https://github.com/cubedro/eth-netstats) to feed information. For full install instructions please read the [wiki](https://github.com/ethereum/wiki/wiki/Network-Status).
+This is the backend service which runs along with Zilliqa and tracks the network status, fetches information through JSON-RPC and connects through WebSockets to [Protomainnet Network Status](https://stats.zq2-protomainnet.zilliqa.com/) to feed information. For full install instructions please read the [wiki](https://dev.zilliqa.com/zilliqa2/nodes/validatormonitoring/).
 
+Zilliqa Network Status links:
 
-## Prerequisite
-* eth, geth or pyethapp
-* node
-* npm
+- [Protomainnet Network Status](https://stats.zq2-protomainnet.zilliqa.com/)
+
+- [Prototestnet Network Status](https://stats.zq2-prototestnet.zilliqa.com/)
 
 
-## Installation on an Ubuntu EC2 Instance
+## Prerequisites
 
-Fetch and run the build shell. This will install everything you need: latest ethereum - CLI from develop branch (you can choose between eth or geth), node.js, npm & pm2.
+Before proceeding, ensure you have the following:
 
-```bash
-bash <(curl https://raw.githubusercontent.com/cubedro/eth-net-intelligence-api/master/bin/build.sh)
-```
-## Installation as docker container (optional)
+- A running Zilliqa node.
+
+- Docker installed on your system.
+
+- Node installed on your system.
+
+- Npm installed on your system.
+
+- The required WebSocket secret (`WS_SECRET`) provided by Zilliqa to connect to the public status pages.
+
+
+## Installation as docker container (recommended)
 
 There is a `Dockerfile` in the root directory of the repository. Please read through the header of said file for
 instructions on how to build/run/setup. Configuration instructions below still apply.
 
-## Configuration
-
-Configure the app modifying [processes.json](/eth-net-intelligence-api/blob/master/processes.json). Note that you have to modify the backup processes.json file located in `./bin/processes.json` (to allow you to set your env vars without being rewritten when updating).
-
-```json
-"env":
-	{
-		"NODE_ENV"        : "production", // tell the client we're in production environment
-		"RPC_HOST"        : "localhost", // eth JSON-RPC host
-		"RPC_PORT"        : "8545", // eth JSON-RPC port
-		"LISTENING_PORT"  : "30303", // eth listening port (only used for display)
-		"INSTANCE_NAME"   : "", // whatever you wish to name your node
-		"CONTACT_DETAILS" : "", // add your contact details here if you wish (email/skype)
-		"WS_SERVER"       : "wss://rpc.ethstats.net", // path to eth-netstats WebSockets api server
-		"WS_SECRET"       : "see http://forum.ethereum.org/discussion/2112/how-to-add-yourself-to-the-stats-dashboard-its-not-automatic", // WebSockets api server secret used for login
-		"VERBOSITY"       : 2 // Set the verbosity (0 = silent, 1 = error, warn, 2 = error, warn, info, success, 3 = all logs)
-	}
-```
-
-## Run
-
-Run it using pm2:
+Run the following command to deploy the Zilliqa Stats Agent:
 
 ```bash
-cd ~/bin
-pm2 start processes.json
+docker run -td --restart=unless-stopped \
+    --platform=linux/amd64 \
+    --net=host \
+    -e RPC_HOST="127.0.0.1" \
+    -e RPC_PORT="4202" \
+    -e LISTENING_PORT="3333" \
+    -e INSTANCE_NAME="validator-name" \
+    -e CONTACT_DETAILS="your email address" \
+    -e WS_SERVER="ws://stats.zq2-protomainnet.zilliqa.com" \
+    -e WS_SECRET="<secret-value>" \
+    -e VERBOSITY="2" \
+    <image-name>
 ```
 
-## Updating
+### Environment Variables
 
-To update the API client use the following command:
+Customize the following environment variables based on your node and network setup:
 
-```bash
-~/bin/www/bin/update.sh
-```
+- `RPC_HOST`: The IP address of your Zilliqa node's RPC interface. Default is `127.0.0.1`.
 
-It will stop the current netstats client processes, automatically detect your ethereum implementation and version, update it to the latest develop build, update netstats client and reload the processes.
+- `RPC_PORT`: The RPC admin port your Zilliqa node is listening on. Default is `4202`.
 
-[travis-image]: https://travis-ci.org/cubedro/eth-net-intelligence-api.svg
-[travis-url]: https://travis-ci.org/cubedro/eth-net-intelligence-api
-[dep-image]: https://david-dm.org/cubedro/eth-net-intelligence-api.svg
-[dep-url]: https://david-dm.org/cubedro/eth-net-intelligence-api
+- `LISTENING_PORT`: The P2P communication port where the agent is listening. Default is `3333`.
+
+- `INSTANCE_NAME`: A unique name for your node instance (e.g., "validator-1").
+
+- `CONTACT_DETAILS`: Your contact email address for identification.
+
+- `WS_SERVER`: WebSocket server URL for the stats page.
+
+    - Use `ws://stats.zq2-protomainnet.zilliqa.com` for protomainnet.
+
+    - Use `ws://stats.zq2-prototestnet.zilliqa.com` for prototestnet.
+
+- `WS_SECRET`: The secret token provided by Zilliqa. **This is sensitive and confidential information. Please do not share it publicly or with unauthorized parties.**
+
+- `VERBOSITY`: Logging verbosity level (default: `2`).
+
+### Troubleshooting
+
+1. **Issue:** The agent fails to connect to the WebSocket server.
+
+    **Solution:** Verify the `WS_SECRET` and `WS_SERVER` values are correct.
+
+2. **Issue:** Logs show the agent cannot reach the Zilliqa node.
+
+    **Solution:** Ensure the `RPC_HOST` and `RPC_PORT` match your node's settings and are accessible.
+
+For further assistance, please contact the Zilliqa team.
