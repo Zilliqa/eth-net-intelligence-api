@@ -42,11 +42,18 @@ RUN apt-get update &&\
 
 RUN adduser ethnetintel
 
-COPY . /home/ethnetintel/eth-net-intelligence-api
+# Set working directory
+WORKDIR /home/ethnetintel/eth-net-intelligence-api
 
-RUN cd /home/ethnetintel/eth-net-intelligence-api &&\
-    npm install &&\
+# Copy package files first
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install &&\
     npm install -g pm2
+
+# Then copy the rest of the code
+COPY . .
 
 RUN echo '#!/bin/bash\nset -e\n\ncd /home/ethnetintel/eth-net-intelligence-api\n/usr/local/bin/pm2 start ./app.json --update-env\ntail -f \
     /home/ethnetintel/.pm2/logs/node-app-out-0.log' > /home/ethnetintel/startscript.sh
