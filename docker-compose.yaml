@@ -40,10 +40,10 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-prototestnet-validator-ase1-0-80f5.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-devnet-validator-ase1-0-a6d2.zq2.dev #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: "zq2-prototestnet-validator-ase1-0-80f5"
+      INSTANCE_NAME: "zq2-devnet-validator-ase1-0-a6d2"
       CONTACT_DETAILS: "devops@zilliqa.com"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
@@ -56,6 +56,72 @@ services:
     networks:
       testnet:
         ipv4_address: 198.51.100.50
+
+  client1:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-devnet-validator-ase1-1-a6d2.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: "zq2-devnet-validator-ase1-1-a6d2"
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client1
+    build:
+      context: .
+      dockerfile: Dockerfile.zilliqa
+    image: zilstats-client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.51
+
+  client2:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-devnet-validator-ase1-2-a6d2.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: "zq2-devnet-validator-ase1-2-a6d2"
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client2
+    build:
+      context: .
+      dockerfile: Dockerfile.zilliqa
+    image: zilstats-client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.52
+
+  client3:
+    depends_on:
+      - dashboard
+      #- node0
+    environment:
+      RPC_HOST: zq2-devnet-validator-ase1-3-a6d2.zq2.dev #"198.51.100.103"
+      RPC_PORT: "4202"
+      LISTENING_PORT: "3333"
+      INSTANCE_NAME: "zq2-devnet-validator-ase1-3-a6d2"
+      CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_SERVER: "ws://198.51.100.10:3000"
+      WS_SECRET: "mysecret"
+      VERBOSITY: "2"
+    container_name: client3
+    build:
+      context: .
+      dockerfile: Dockerfile.zilliqa
+    image: zilstats-client:latest
+    networks:
+      testnet:
+        ipv4_address: 198.51.100.53
 
 networks:
   testnet:
