@@ -25,7 +25,7 @@ services:
     build:
       context: ../ethstats-server
       dockerfile: Dockerfile
-    image: zilstats-server:latest
+    # image: zilstats-server:latest
     platform: linux/amd64
     ports:
       - "3000:3000"
@@ -40,11 +40,12 @@ services:
       - dashboard
       #- node0
     environment:
-      RPC_HOST: zq2-prototestnet-validator-ase1-0-80f5.zq2.dev #"198.51.100.103"
+      RPC_HOST: zq2-devnet-api-ase1-0-b549.zq2.dev #"198.51.100.103"
       RPC_PORT: "4202"
       LISTENING_PORT: "3333"
-      INSTANCE_NAME: "zq2-prototestnet-validator-ase1-0-80f5"
+      INSTANCE_NAME: "zq2-devnet-api-ase1-0-b549"
       CONTACT_DETAILS: "devops@zilliqa.com"
+      WS_PORT: "4202"
       WS_SERVER: "ws://198.51.100.10:3000"
       WS_SECRET: "mysecret"
       VERBOSITY: "2"
@@ -52,7 +53,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.zilliqa
-    image: zilstats-client:latest
+    # image: zilstats-client:latest
     networks:
       testnet:
         ipv4_address: 198.51.100.50
